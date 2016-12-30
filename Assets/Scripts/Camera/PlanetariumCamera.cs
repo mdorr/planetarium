@@ -12,6 +12,7 @@ public class PlanetariumCamera : MonoBehaviour {
 	public CelestialObject currentlyViewedObject = null;
 
 	public float viewDistance = 15f;
+	public float viewHeight = 10f;
 	public float moveSpeed = 100f;
 	public float rotateSpeed = 30f;
 
@@ -44,7 +45,7 @@ public class PlanetariumCamera : MonoBehaviour {
 		// From currently viewed object to origin
 		Vector3 normal = -currentlyViewedObject.transform.position.normalized;
 
-		return currentlyViewedObject.transform.position + normal * viewDistance;
+		return currentlyViewedObject.transform.position + (normal * viewDistance) + (Vector3.up * viewHeight);
 	}
 
 	Quaternion GetCameraRotation () {
@@ -52,10 +53,10 @@ public class PlanetariumCamera : MonoBehaviour {
 			return Quaternion.identity;
 		}
 
-		// From origin to currently viewed object
-		Vector3 normal = currentlyViewedObject.transform.position.normalized;
+		// From camera to currently viewed object
+		Vector3 dir = (currentlyViewedObject.transform.position - camTransform.position).normalized;
 
-		return Quaternion.LookRotation (normal, Vector3.up);
+		return Quaternion.LookRotation (dir, Vector3.up);
 	}
 
 
