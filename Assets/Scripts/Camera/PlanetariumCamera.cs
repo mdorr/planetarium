@@ -59,22 +59,30 @@ public class PlanetariumCamera : MonoBehaviour {
 		return Quaternion.LookRotation (dir, Vector3.up);
 	}
 
+	public void NextObject () {
+		int curIndex = Array.IndexOf (celestialObjects, currentlyViewedObject);
+		currentlyViewedObject = celestialObjects [(curIndex + 1) % celestialObjects.Length];
+	}
+
+	public void PreviousObject () {
+		int curIndex = Array.IndexOf (celestialObjects, currentlyViewedObject);
+		if (curIndex == 0) {
+			currentlyViewedObject = celestialObjects [celestialObjects.Length - 1];
+		} else {
+			currentlyViewedObject = celestialObjects[curIndex - 1];
+		}
+	}
+
 
 	void OnGUI() {
 		if (GUILayout.Button ("<")) {
-			int curIndex = Array.IndexOf (celestialObjects, currentlyViewedObject);
-			if (curIndex == 0) {
-				currentlyViewedObject = celestialObjects [celestialObjects.Length - 1];
-			} else {
-				currentlyViewedObject = celestialObjects[curIndex - 1];
-			}
+			PreviousObject ();
 		}
 
 		GUILayout.Label (currentlyViewedObject.objectName);
 
 		if (GUILayout.Button (">")) {
-			int curIndex = Array.IndexOf (celestialObjects, currentlyViewedObject);
-			currentlyViewedObject = celestialObjects [(curIndex + 1) % celestialObjects.Length];
+			NextObject ();
 		}
 
 	}
