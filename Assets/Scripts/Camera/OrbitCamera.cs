@@ -10,7 +10,7 @@ public class OrbitCamera : MonoBehaviour {
 		MOVE = 2
 	}
 
-	private CAMERA_MODES cameraMode = CAMERA_MODES.INIT;
+	public CAMERA_MODES cameraMode = CAMERA_MODES.INIT;
 
 	public CelestialObject[] celestialObjects = new CelestialObject[0];
 	public CelestialObject target;
@@ -131,20 +131,6 @@ public class OrbitCamera : MonoBehaviour {
 			ChangeCameraTarget (celestialObjects [celestialObjects.Length - 1]);
 		} else {
 			ChangeCameraTarget (celestialObjects [curIndex - 1]);
-		}
-	}
-
-	void OnGUI() {
-		if (cameraMode == CAMERA_MODES.ORBIT) {
-			if (GUILayout.Button ("<")) {
-				PreviousObject ();
-			}
-
-			GUILayout.Label (target.objectName);
-
-			if (GUILayout.Button (">")) {
-				NextObject ();
-			}
 		}
 	}
 
