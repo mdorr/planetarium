@@ -14,4 +14,6 @@ Some of the graphics used are kindly provided by:
 * [Solar System Scope](http://www.solarsystemscope.com/textures/) by INOVE
 * [Planet Pixel Emporium](http://planetpixelemporium.com/planets.html) by James Hastings-Trew
 
-The project uses the [Lato font](http://www.latofonts.com/) by Łukasz Dziedzic and Adam Twar­doch.
+The following fonts are used:
+* [Lato](http://www.latofonts.com/)
+* [Titillium](http://www.campivisivi.net/titillium/)
