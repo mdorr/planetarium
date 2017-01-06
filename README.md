@@ -1,7 +1,6 @@
-# Planetarium
+![Planetarium Logo](banner.png)
 
 A solar system simulator for iOS, built in C# and Unity3d.
-
 
 Please note: The project is using copyrighted materials from the Unity Asset store. This code is not included in the Github archive. The project cannot be built without the following license(s):
 
