@@ -7,8 +7,8 @@ public class CelestialObject : MonoBehaviour {
 	[Tooltip("Name of the celestial object")]
 	public string objectName = "";
 
-	public static TextAsset getDetailText () {
-
+	public static string getDetailText (string name) {
+		TextAsset txt = Resources.Load("Text/" + name.ToLower ()) as TextAsset;
+		return txt ? txt.text : "";
 	}
-
 }
