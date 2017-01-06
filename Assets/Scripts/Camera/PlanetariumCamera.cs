@@ -22,10 +22,10 @@ public class PlanetariumCamera : MonoBehaviour {
 	public float yMinLimit = -20f;
 	public float yMaxLimit = 80f;
 
-	public float moveTime = 2f;
-
 	float x = 0.0f;
 	float y = 0.0f;
+
+	public float introFadeTime = 5f;
 
 	void Start () {
 		Vector3 angles = transform.eulerAngles;
@@ -34,7 +34,7 @@ public class PlanetariumCamera : MonoBehaviour {
 	}
 
 	void InitCamera () {
-		ChangeCameraTarget (celestialObjects [0]);
+		ChangeCameraTarget (celestialObjects [0], introFadeTime);
 	}
 
 	void LateUpdate () {
@@ -79,11 +79,11 @@ public class PlanetariumCamera : MonoBehaviour {
 		}
 	}
 
-	IEnumerator MoveCamera (CelestialObject cObj, float time) {
+	IEnumerator MoveCamera (CelestialObject cObj, float moveTime = 2f) {
 		cameraMode = CAMERA_MODES.MOVE;
 		float t = 0f;
 		float s = 0f;
-		float rate = 1f / Mathf.Max (time, 0.0001f);
+		float rate = 1f / Mathf.Max (moveTime, 0.0001f);
 
 		Vector3 initialPosition = transform.position;
 		Quaternion initialRotation = transform.rotation;
@@ -113,7 +113,7 @@ public class PlanetariumCamera : MonoBehaviour {
 		yield return null;
 	}
 
-	void ChangeCameraTarget (CelestialObject cObj) {
+	void ChangeCameraTarget (CelestialObject cObj, float moveTime = 2f) {
 		if (cameraMode == CAMERA_MODES.MOVE) {
 			return;
 		}
