@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class TargetUi : MonoBehaviour {
 
-	protected OrbitCamera cam;
+	protected PlanetariumCamera cam;
 
 	protected virtual void Start () {
 		
-		cam = GameObject.FindObjectOfType<OrbitCamera> () as OrbitCamera;
+		cam = GameObject.FindObjectOfType<PlanetariumCamera> () as PlanetariumCamera;
 
 		if (cam == null) {
 			Debug.LogError ("Cannot find required components. Please check objects in scene");

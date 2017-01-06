@@ -13,7 +13,7 @@ public class TargetSwitcher : TargetUi {
 	}
 	
 	void Update () {
-		if (cam.cameraMode != OrbitCamera.CAMERA_MODES.ORBIT) {
+		if (cam.cameraMode != PlanetariumCamera.CAMERA_MODES.ORBIT) {
 			btn.interactable = false;
 		} else {
 			btn.interactable = true;

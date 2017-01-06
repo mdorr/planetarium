@@ -13,7 +13,7 @@ public class TargetText : TargetUi {
 	}
 
 	void Update () {
-		if (cam && cam.cameraMode == OrbitCamera.CAMERA_MODES.ORBIT && cam.target) {
+		if (cam && cam.cameraMode == PlanetariumCamera.CAMERA_MODES.ORBIT && cam.target) {
 			txt.text = cam.target.objectName;
 		} else {
 			txt.text = "";
