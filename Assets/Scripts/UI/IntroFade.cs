@@ -23,7 +23,6 @@ public class IntroFade : MonoBehaviour {
 
 	IEnumerator fadeBgImage (float fadeTime) {
 		float t = 0f;
-		float s = 0f;
 		float rate = 1f / Mathf.Max (fadeTime, 0.0001f);
 
 		Color startColor = bgImage.color;
